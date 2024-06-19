@@ -21,3 +21,51 @@ can be positioned with `"caption-side"` property
 `<td>` for data cell
 `<th>` for header cell
 
+for CSS stylesheet, you can select every element including a class by using a ~ tilda. 
+For example: `span[class~="sr-only"]{}`
+
+CSS `clip` property defines visible portions of an element.
+To hide use selector with:
+CSS `clip-path` determines shape of `clip` property.
+
+`span[class~="sr-only"] {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+	padding: 0;
+	margin: -1px;
+}
+`
+
+Shrink its size and make sure no overflow and no wrapping
+Take elements out of document flow (which means where they effect nothing and
+are out of way at position off screen)
+
+can use psuedo selector `:first-of-type` to target just as it says
+`:last-of-type` does exact opposite
+
+`calc()` function lets you calculate values based off other values.
+SPACING IS IMPORTANT IN FUNCTION
+
+sticky moves elements to their own stack. add z-index 999 to prevent getting hidden
+z-index is basically layers, bigger number is higher priority to display
+
+target any element with a class using [class] selector empty.
+
+:not() psuedo-selector targets all elements that dont match selector. use to not have rules overwritten
+Can use !important on end of any property to avoid
+
+border-collapse: collapse property lets cell borders merge into 1
+
+tr[class="total"] sleects only where class is total
+tr.total selects where class includes total
+
+:nth-of-type() target specific elements based on like siblings in order
+
+:hover selector when mouseover
+
