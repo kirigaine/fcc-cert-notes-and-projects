@@ -14,3 +14,7 @@ sticky is a hybrid of relative and fixed. element sticks to specific position in
 
 quick tip: set all positions to absolute and 0, then margin auto to center verticall and horizontally
 
+transform can modify shape, position, and size of an element without changing layout or affecting surrounding elements
+some functions include: translate(), rotate(), scale(), skew(), matrix()
+
+
