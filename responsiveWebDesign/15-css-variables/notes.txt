@@ -1,0 +1,34 @@
+css variables are noted using --variable-name: value;
+
+to use said variable, put var in front of them like var(--variable-name)
+
+you can add another parameter to var() call as a fallback
+e.g. var(green, blue)
+
+if green fails to work, blue is used
+
+:root{} is highest selector in CSS
+usually variables are put in it because of scope issues
+
+gradients in css are a transition between colors across distance of element. applied to background property
+syntax:
+gradient-type(
+	color1,
+	color2
+);
+
+gradients can have 20% after each parameter to determine when that color ends
+
+repeating-linear-gradient is another type that will continue until end of element
+
+if an element has zero size and borders, they come together into the middle. can use 
+this trick to make triangles
+
+gradient type also takes an optional direction as a first parameter in degrees
+
+you can use two gradients separated by commas, it fills in behind last added gradient
+
+radial-gradient exists, instead of direction accepts location of circle
+e.g. `circle closest-corner at 15% 15%`
+
+
