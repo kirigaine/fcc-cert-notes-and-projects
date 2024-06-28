@@ -1,0 +1,74 @@
+loading attribute can be set to lazy on image to make it load only when in view and 
+AFTER nonlazy elements. this can be useful for slow internet connections
+
+setting font-size to 62.5% in the html selector allows rem to be based at 10
+
+CSS Grid offers a two-dimensional grid-based layout, allowing you to center items horizontally and vertically while still retaining control to do things like overlap elements.
+
+to start a grid, set display: grid of main or other overarching element
+
+css grid is similar to flexbox in it has special properties for parent and children
+
+set three column layout by adding grid-template-columns layout with value `1fr 94rem 1f4`. this makes 3 columns, middle is 94% of rem, and the outsides are a split fraction
+
+minmax functions make columns responsive on any device
+we used :  minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr)
+
+min-content:
+
+    This value sets the size of the element to be the minimum size necessary to contain its content without any overflow.
+
+max-content:
+
+    This value sets the size of the element to be the maximum size necessary to contain its content without any overflow.
+
+row-gap property increases space between rows in grid layout
+
+you can adjust grid placement. grid-column tells griditems where to start and end.
+
+grid-column: 2/3 sets it to start at grid line 2 and end at grid line 3
+
+repeat() function is used to repeate a value and helps with grid
+
+setting grid-template-columns to repeat(20,200px) would create 20 columns 200px wide each
+
+for grid-column you may be unsure how many youll have but want to stop at last one, so you can use -1
+
+object-fit: cover is a property that tells broswer how to position element in container
+cover sets image to fill container while cropping
+
+default cssgrid settings creates additional rows as needed. 
+
+if you wanted to add more things to a row but hardcoded the value already, you would have to change code to add additional columns.
+ you can alternatively use grid-auto-flow property
+
+row or column is first value, and an optional dense second value. dense makes it backtrack and fill holes, which can make things appear out of order
+
+the auto-placement algorithm auto sets column width, but if you want to make it fixed set grid-auto-columns: 1fr or something else
+
+align-items aligns on column axis, justify-items aligns on row axis
+
+you can create columns in a non cssgrid item by using column-width property
+
+justified text works in printed form but can cause accessibility concerns.
+regardless,
+ use text-align: justify to fill text.
+
+::first-letter psuedo-selector selects first letter in text content of element
+this will shift other text out of place, so use float and opposite margin property to fix
+
+adjust hr color by giving it a border
+
+can use ::before and ::after psuedo selector to make quotations with content property
+
+lists-style-type: none will remove bullet points on list
+
+gap property can shorthand access row-gap and column-gap if given 2 values
+
+place-items can be used to set both align-items and justify-items at same time
+takes one or two values, if two align is taken first then justify
+
+only screen combined with a media query can prevent it from being used
+on other forms of media that may read a website
+
+
