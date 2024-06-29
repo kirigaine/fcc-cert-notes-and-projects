@@ -1,11 +1,74 @@
+/*{
+  border: 1px solid black;
+}*/
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
 html{
   font-size: 65%;
+  box-sizing: border-box;
+}
+
+
+
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  background-color: white;
+}
+
+main{
+  padding-top: 50px;
 }
 
 a{
   text-decoration: none;
 }
 
+#obtainment{
+  display:flex;
+  justify-content: space-evenly;
+}
+
 .tier-box{
   border: 1px solid black;
+  max-width: 300px;
+  text-align: center;
+}
+
+.the-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+iframe{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+li{
+  list-style-type:none;
+  text-align: center;
+}
+
+input[type="email"], input[type="submit"]{
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 10 auto;
+}
+
+
+footer{
+  background-color: grey;
 }
