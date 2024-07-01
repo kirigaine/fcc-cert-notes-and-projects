@@ -33,6 +33,12 @@ body{
 
 }
 
+/* Top of page */
+
+nav{
+  top: 0;
+}
+
 header{
   background-color: rgb(20,20,20);
   position: fixed;
@@ -51,17 +57,28 @@ header{
 
 }
 
-a{
+.nav-link>a{
   font-size: 2rem;
   color: var(--main_color);
   text-decoration: none;
 }
 
-a:hover{
+.nav-link>a:hover{
   background: repeating-linear-gradient(var(--alt_color) 5%,white 75%);
   text-shadow: 2px 2px black;
   border-radius: 4px;
 }
+
+ul{
+  display: flex;
+}
+
+li.nav-link{
+  list-style-type: none;
+  margin: 50px 10px;
+}
+
+/* FIRST SECTION */
 
 section.welcome{
   height: 100vh;
@@ -89,14 +106,7 @@ section.welcome{
   transition-duration: 0.5s;
 }
 
-ul{
-  display: flex;
-}
 
-li.nav-link{
-  list-style-type: none;
-  margin: 50px 10px;
-}
 
 /* PROJECT SECTION */
 
@@ -110,16 +120,25 @@ li.nav-link{
 
 .project-tile{
   width: 100%;
-  max-width: 600px;
-  max-height: 400px;
-  border: 2px dotted black;
+  max-width: 500px;
+  border: 2px solid black;
+  margin: 10px 10px;
 }
 
 .project-image{
+  width: 100%;
+  object-fit: cover;
   min-width: 300px;
   min-height: 300px;
-  width: 100%;
-  margin: 10px auto;
+}
+
+.project-title{
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+.project-image:hover{
+  outline: 2px solid lightblue;
 }
 
 .project-tile h3{
@@ -130,10 +149,13 @@ li.nav-link{
   text-align: center;
 }
 
+
+
 /* MEDIA QUERIES */
 
 @media (max-width: 760px){
-  a{
+  
+  .nav-link>a{
     font-size: 1.6rem;
   }
 
@@ -144,17 +166,9 @@ li.nav-link{
   li.nav-link{
   margin: 50px 5px;
   }
+
   li.nav-link:last-of-type{
     margin-right: 10px;
   }
 }
 
-@media (max-width: 606px){
-  a{
-    font-size: 1.0rem;
-  }
-
-  .helm{
-    font-size: 1.0rem;
-  }
-}
