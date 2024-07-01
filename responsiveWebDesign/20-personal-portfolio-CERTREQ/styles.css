@@ -27,7 +27,6 @@ html{
 body{
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(40,40,80,90%) 0%, rgba(20,20,20,70%) 100%);
   height: 100vh;
   width: 100%;
 
@@ -87,6 +86,7 @@ section.welcome{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(rgba(40,40,80,90%) 0%, rgba(20,20,20,70%) 100%);
 }
 
 .player-name,.player-guild{
@@ -116,6 +116,7 @@ section.welcome{
   align-content: flex-start;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background: linear-gradient(rgba(40,40,80,90%) 0%, rgba(20,20,20,70%) 100%);
 }
 
 .project-tile{
@@ -147,9 +148,64 @@ section.welcome{
 
 .project-header{
   text-align: center;
+  background-color: rgb(20,20,20);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 14px 0;
+}
+
+/* LANG AND CERTS SECTION */
+
+section#langs-and-certs{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: linear-gradient(rgba(40,40,80,90%) 0%, rgba(20,20,20,70%) 100%);
+}
+
+.lang-title,.cert-title{
+  text-align: center;
+}
+
+.languages,.certifications{
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  text-align: center;
 }
 
 
+
+/* FOOTER */
+
+footer{
+  background-color: rgb(20,20,20);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 53px;
+}
+
+.fa {
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: -5px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.fa:hover{
+  transform: scale(1.25);
+  opacity: 0.8;
+}
 
 /* MEDIA QUERIES */
 
@@ -172,3 +228,17 @@ section.welcome{
   }
 }
 
+@media (max-width: 606px){
+  
+  .helm{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  #navbar>ul{
+    justify-content: center;
+    width: 100vw;
+    padding: 0;
+  }
+  
+}
