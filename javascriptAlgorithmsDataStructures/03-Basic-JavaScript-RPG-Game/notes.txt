@@ -1,0 +1,4 @@
+Developer console is one of most powerful tools, access with F12
+
+One method for finding specific HTML elements is querySelector(). Takes a css selector. Use quotes in parenthesis
+
