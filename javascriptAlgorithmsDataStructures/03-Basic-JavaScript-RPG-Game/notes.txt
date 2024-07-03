@@ -2,3 +2,23 @@ Developer console is one of most powerful tools, access with F12
 
 One method for finding specific HTML elements is querySelector(). Takes a css selector. Use quotes in parenthesis
 
+scripts in <head> of html cannot find the elements after because they are queried before the browser has processed the elements
+
+moved it before closing body tag
+
+buttons have onclick property. One way to access is dot notation.
+
+button.onclick = functionName; NO PARENTHESES
+innerText property controls text that appears in HTML element
+
+escape characters uing \
+
+objects are nonprimitive datatypes tat store keyvalue pairs
+
+"Non primitive data types are mutable data types that are not undefined, null, boolean, number, string, or symbol"
+
+const cat = {};
+
+objects are similar to arrays, except you access data through properties instead of indexes
+
+
