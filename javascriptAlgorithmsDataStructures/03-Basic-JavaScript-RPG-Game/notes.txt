@@ -21,4 +21,10 @@ const cat = {};
 
 objects are similar to arrays, except you access data through properties instead of indexes
 
+keys with spaces between words need quotes
+can access propert with dot notation and bracket notation 
+cat.name or cat["Number of legs"]
+
+objects in arrays dont need a name
+
 
