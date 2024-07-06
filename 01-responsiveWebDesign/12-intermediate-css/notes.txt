@@ -1,0 +1,20 @@
+box-sizing: border-box ensures elements include padding and border in their
+specified width and height
+
+default positioning for all elements is static.
+you wont be able to move it with top, bottom, left or right if assigned
+
+relative is positioned according to normal flow of document but values become active
+
+absolute position takes it out of normal document flow and determines its position by top, left, etc modifiers
+
+fixed lets an element fix to the page no matter where scrolling
+
+sticky is a hybrid of relative and fixed. element sticks to specific position in containing element based on scroll position
+
+quick tip: set all positions to absolute and 0, then margin auto to center verticall and horizontally
+
+transform can modify shape, position, and size of an element without changing layout or affecting surrounding elements
+some functions include: translate(), rotate(), scale(), skew(), matrix()
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Minecraft Survey</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta encoding="UTF-8">
+</head>
+
+<body>
+  <h1 id="title">Minecraft Survey</h1>
+  <p id="description">We want to hear how you play the game!</p>
+  <form id="survey-form">
+    <!-- Survee information -->
+    <fieldset>
+      <label for="name" id="name-label">Name: <input id="name" type="text" required placeholder="Steve"></label>
+      <label for="email" id="email-label">Email: <input id="email" type="email" required placeholder="notch@mojang.com"></label>
+      <label for="age" id="number-label">Age <input id="number" type="number" min=8 max=99 placeholder="42"></label>
+    </fieldset>
+
+    <!-- Survee gameplay questions -->
+    <fieldset>
+      <legend>What difficulty do you play on?</legend>
+      <select id="dropdown">
+        <option value="">(select one)</option>
+        <option value="0">Peaceful</option>
+        <option value="1">Easy</option>
+        <option value="2">Normal</option>
+        <option value="3">Hard</option>
+      </select>
+      <hr>
+      <label>Would you say you're good at the game?</label>
+      <label><input type="radio" name="good-type" value=2>Yes</label>
+      <label><input type="radio" name="good-type" value=1>Kinda</label>
+      <label><input type="radio" name="good-type" value=0>No</label>
+      <hr>
+      <label>What's some of your favorite things to do ingame?</label>
+      <label><input type="checkbox" value="adventure">Adventure</label>
+      <label><input type="checkbox" value="redstone">Redstone</label>
+      <label><input type="checkbox" value="build">Build</label>
+      <label><input type="checkbox" value="mine">Mine</label>
+      <label><input type="checkbox" value="minigames">Minigames</label>
+      <label><input type="checkbox" value="achievements">Achievement Collection</label>
+      <label><input type="checkbox" value="friends">Hang with friends</label>
+    </fieldset>
+
+     <!-- Survee comments -->
+    <fieldset>
+      <legend>What features would you like to see in future updates?</legend>
+      <textarea placeholder="Well for starters...." cols=40 rows=6></textarea>
+      <input type="Submit" id="submit" value="Submit">
+    </fieldset>
+  </form>
+</body>
+</html>
