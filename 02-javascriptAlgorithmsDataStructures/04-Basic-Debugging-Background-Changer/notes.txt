@@ -1,0 +1,7 @@
+syntax errors when js engine cant interpret
+reference error occurs when nonexistent variable is referenced
+TypeError means code is trying to perform an operation on a value that is not of expected type
+
+null represents absence of a value in JS, can happen when accessing property of object that doesnt exist
+
+
