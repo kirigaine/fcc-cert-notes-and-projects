@@ -27,4 +27,23 @@ cat.name or cat["Number of legs"]
 
 objects in arrays dont need a name
 
+you can hide and show elements using display and style properties.
+style is used to access inline style of element
+display sets visibility
 
+  monsterStats.style.display = 'block';
+
+Math object in JS has static properties for math constants and functions
+
+Math.random() is [0,1)
+Math.floor()
+
+this generates a random number between 1 and 5: Math.floor(Math.random() * 5) + 1;
+
+in order for &#x2620; emoticon text to display properly, use innerHTML property to update content 
+
+ternary operator are a one-line ifelse
+
+syntax: condition? expressionIfTrue : expressionIfFalse
+
+.includes determines if an array contains an element, returns boolean
