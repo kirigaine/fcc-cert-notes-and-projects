@@ -1,0 +1,91 @@
+All modern browsers support Web Audio API, which lets you generate and process audio in web apps
+
+new Audio() creates HTML audio element
+
+Spread operator (...) allows you to copy all elements from one array to another
+Can also be used to concatenate multiple arrays
+
+Arrow functions are anonymous function expression and a shorter way to make functions
+
+they have no name. to assign name, assign function to a variable
+
+arrow functions can take parameters, for example
+
+const greet = (name) => {
+console.log(`Hello ,${name}!`);
+};
+
+You can omit the parentheses if only one parameter
+If your arrow function is returning a simple expression, you dont need to explicitly state return or use curly braces. This is an implicit return
+
+const multiplyTwoNumbers = (num1, num2) => num1 * num2;
+
+You can use map() method to add new HTML
+map() iterates through an array and returns a new array
+
+e.g. ```
+const numbers = [1, 2, 3];
+const doubledNumbers = numbers.map((number) => number * 2); // doubledNumbers will be [2, 4, 6]
+```
+
+map takes a function as an argument, a callback function (which is a function passed as an arugment)
+
+You may not want your array to print separated by commas, where we would need to print  a list instead. Join method can concatenate all elements to a single string
+
+Optional chaining (?.) helps prevent errors accessing nested properties
+
+e.g.```
+const user = {
+  name: "Quincy",
+  address: {
+    city: "San Francisco",
+    state: "CA",
+    country: "USA",
+  },
+};
+
+// Accessing nested properties without optional chaining
+const state = user.address.state; // CA
+
+// Accessing a non-existent nested property with optional chaining
+const zipCode = user.address?.zipCode; // Returns undefined instead of throwing an error
+
+```
+
+To use sort() method of arrrays, need to provide callback function
+
+  userData?.songs.sort((a,b) => {callback function in here});
+
+
+Strings are compared lexicographically whic means Apples is less than Bananas because A comes before B
+
+Sort expects a number to be returned, negatives mean sort first item before second
+
+Find() retrieves first element in an array that meets conditions specified in callback function, else returns undefined
+
+audio.play() is the methdod from web audio api to play mp3
+
+can add onclick as a property in html to call js function
+
+indexOf() returns first index element can found at in array or -1
+
+forEach() methods are used to iterate through an array and perform a function on each element
+
+removeAttribute() will remove attribute for each
+
+textContent lets you set text of a node and either set or retrieve text of HTML element
+
+To give a random negative or postitive number for shuffling,
+use Math.random() -0.5;
+
+filter() method keeps only elements of an array that satisfy callback function
+
+createElement() is a DOM method to dynamically make elements using JS. tag name is as a string
+
+to assign element text, use createTextNode()
+
+to set id and aria-label, javascript just has dot accessers
+
+appendChild() method adds elements as child
+
+"ended" is an event listener type
