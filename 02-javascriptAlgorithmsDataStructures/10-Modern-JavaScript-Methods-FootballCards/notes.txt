@@ -1,0 +1,24 @@
+Object.freeze(obj) prevents any changes being made to it
+
+We can use dot notation to access properties in an object, but there's an easier way:
+object destructuring syntax unpacks values from arrays and objects
+
+const developerObj = {
+  name: "Jessica Wilkins",
+  isDeveloper: true
+};
+
+// Object destructuring
+const { name, isDeveloper } = developerObj;
+
+function parameters can be given default values
+
+const greeting = (name = "Anonymous") => {
+  return "Hello " + name;
+} 
+
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
+
+
+
