@@ -8,4 +8,19 @@ there is also a .close() method to close the modal
 
 to make an id unique we used Date.now()
 
+this is a keyword that refers to current context. Can refer to element that triggers event
+
+to remove something from our DOM, we use remove()
+we remove from our array using splice()
+
+localStorage offers methods for saving, retrieving or deleting items. Can be any JavaScript datatype
+
+setItem() saves an item
+getItem() retrieves an item
+removeItem() deletes item
+clear() clears all items
+
+everything needs to be in string format, fix using JSON.stringify()
+to read it as it originally was, use JSON.parse()
+
 

@@ -1,11 +1,13 @@
-# fcc-cert-projects
-Compilation of required projects for certifications from FreeCodeCamp (https://www.freecodecamp.org)
+# FreeCodeCamp Certification Projects
 
-Certifications completed:
-- Responsive Web Design (HTML/CSS)
+Welcome to my compilation of projects and notes for certifications from [FreeCodeCamp](https://www.freecodecamp.org)!
 
-Current working on:
-- JavaScript
+## Certifications Completed:
+- **Responsive Web Design (HTML/CSS)**
 
+## Currently Working On:
+- **JavaScript**
 
-Probably most excited to get into the backend and database lessons
+## What I'm Excited About:
+I'm particularly looking forward to diving into the backend and database lessons!
+
