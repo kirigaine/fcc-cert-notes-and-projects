@@ -1,0 +1,13 @@
+keydown events fire every time a user pressers a key on their keyboard, a good way to provide
+interactivity to input elements
+
+whenever an event listener is triggered by an event, an event object is created.
+you don't always need to use this object
+
+numberInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {}
+});
+
+while input type="number" element restricts by only allowing numbers and making validation easier, values from HTML elements come as strings. Also can be changed when submitting. Also empty inputs are string ""
+
+
