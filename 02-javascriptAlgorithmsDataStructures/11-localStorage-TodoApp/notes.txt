@@ -1,0 +1,11 @@
+localStorage is a webstorage function that allows persisting data as a key:value pair
+
+another way to use classList to add or remove classes is the .toggle method which will add it if absent, or remove it if present
+
+the HTML dialog element has a showModal() method that can display a modal dialog box on web page
+
+there is also a .close() method to close the modal
+
+to make an id unique we used Date.now()
+
+
