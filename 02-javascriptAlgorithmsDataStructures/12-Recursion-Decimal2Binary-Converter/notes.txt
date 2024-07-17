@@ -10,4 +10,27 @@ numberInput.addEventListener("keydown", (e) => {
 
 while input type="number" element restricts by only allowing numbers and making validation easier, values from HTML elements come as strings. Also can be changed when submitting. Also empty inputs are string ""
 
+can use logical NOT operator (!) instead of checking exact falsey values
+
+prevent decimals, math and exponentials in number inputs by useing parseInt()
+
+returns either an int or NaN, need to parse with isNaN()
+
+bits are grouped in octets, 8 bit sets known as bytes. bytes represent 0-255
+
+Best way to handle decimals and floats is rounding down with floor
+
+stacks are last in first out
+
+The call stack is a collection of function calls stored in a stack structure. When you call a function, it is added to the top of the stack, and when it returns, it is removed from the top / end of the stack.
+
+recursive functions are functions that call themselves over and over, hopefully until a condition. write that base case first
+
+we can use setTimeout to remove elements from DOM.
+it takes a callback function and a number representing time in milliseconds before executing
+
+setTimeout() is asynchronous, meaning it doesnt stop rest of code from executing.
+
+async code allows us to write nonblocking code, letting us do what we need to while something else happens in background
+
 
