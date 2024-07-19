@@ -1,0 +1,20 @@
+strings have a .match() method and accepts regular expressions
+
+.test returns a boolean instead
+
+arrays have .some() method where it tests every element of an array vs a function and gives boolean
+
+regex characte classes are contained within brackets, defines range of characters
+
+capture groups are defined by parentehesis. part of the expression to capture and save for later reference
+
+? 0-1 matches
++ 1or more matches
+
+we dont need the match, so we can turn it into a noncaptured capturing group by putting ?: after first parentheses
+
+check for spaces before and after pattern using \s to match spaces, tabs and line breaks
+
+^ asserts pattern match starts at beginning of full string
+
+$ asserts end of pattern match:wq
