@@ -1,0 +1,5 @@
+.getElementsByClassName() is effective for getting elements with same class
+
+returns array-like object, use spread operator to convert to array [...]
+
+map still iterates over an array
