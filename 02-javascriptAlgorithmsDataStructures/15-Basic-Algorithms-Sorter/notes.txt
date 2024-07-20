@@ -3,3 +3,11 @@
 returns array-like object, use spread operator to convert to array [...]
 
 map still iterates over an array
+
+bubble array swaps down the line
+
+selection sort sorts finding the smallest values and swapping them in order
+
+insertion sort works by building up a sorted array at beginning of list
+
+there is a built-in .sort() method for arrays too. it sorts alphabetically though after converting to string. to prevent use callback function
