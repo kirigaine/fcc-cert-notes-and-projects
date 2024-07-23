@@ -1,0 +1,46 @@
+the global window object represents the browser window(tab). has an onload() property where you can define behavior after the window has loaded entire page
+
+functions are ideal for reusable logic
+
+the document object has .createElement() method to create new HTML elements
+
+Array() takes a range to make an array. and chain .fill to give values
+
+you can use .charCodeAt with the argument 0 to convert to numbers
+
+String.fromCharCode to convert number back into strings through .map
+
+instead of setAttribute() on elements, we can simply use dot notation
+
+e.g. input.ariaLabel = "What it is";
+
+when declaring an object, you can pass variables as shorthand key:Value pairs
+
+.onchange property of elements can be set to a function
+
+substring.includes() to check if string inside string
+
+returning a function within a function is called currying
+
+this lets us create a variable that holds a function to be called later, but with reference to the parameters of the outer function call
+
+When a function have access to all variables declared at their creation, it's called closure
+
+Using arrow syntax you can implicitly return a function in a "chain" so to speak
+
+const curry = soup => veggies => {};
+
+const addCharacters = character1 => character2 => num => 
+    charRange(character1,character2);
+
+you can pass a function reference as a callback parameter.
+
+it will pass the same arguments a .map callback takes
+
+a .replace method call's second argument doesnt have to be a string. it can be a callback function to run more complex logic on the matched string
+
+JS allows you to immediately invoke returned functions - myFunc(1)("hi");
+
+it is common convention to prefix an unsued parameter with an underscore, or leave it empty
+
+an infix is the operator between two operands
