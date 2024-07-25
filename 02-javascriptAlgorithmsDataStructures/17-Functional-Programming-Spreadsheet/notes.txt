@@ -44,3 +44,15 @@ JS allows you to immediately invoke returned functions - myFunc(1)("hi");
 it is common convention to prefix an unsued parameter with an underscore, or leave it empty
 
 an infix is the operator between two operands
+
+object value  types can be functions
+
+const infixToFunction = {
+  "+": (x,y) => x+y
+
+}
+
+
+
+
+
