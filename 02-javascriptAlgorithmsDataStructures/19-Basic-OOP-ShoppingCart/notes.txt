@@ -1,0 +1,29 @@
+JS also has a cLass. classes are blueprints for creating objects. Allows you to instantiate a defined classes with a set of properties and methods
+
+class Computer{
+	constructor(){
+		this.ram=16;
+
+};
+
+constructors are called when created, where you initialize properties
+
+class Computer {
+  constructor() {
+    this.ram = 16;
+  }
+
+  addRam(amount) {
+    this.ram += amount;
+  }
+}
+
+
+instantiate by const myComputer = new Computer();
+
+
+decimal math isnt exact, so used .toFixed() to fix. returns parameter number of decimal places as string
+
+Browsers have a built-in confirm() function which displays a confirmation prompt to the user. confirm() accepts a string, which is the message displayed to the user. It returns true if the user confirms, and false if the user cancels.
+
+pass Object method directly as callback using You can do this by passing cart.clearCart.bind(cart) as the callback.
