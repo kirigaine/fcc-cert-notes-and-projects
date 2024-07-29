@@ -1,0 +1,25 @@
+can querySelector a child using > with proper spacing
+
+canvasAPI can be used to create graphics in games using JS and HTML Canvas
+canvas.getContext("2d"); provides where to be rendered
+
+innerWidth reps interior width of browser window
+innerHeight reps interior height of browser window
+
+for a canvas, .fillStyle sets the color, .fillRect creates shape
+
+requestAnimationFrame() web API takes a callback to update the animation on screen
+need to clear canvas before rendering next frame
+
+can assign multiple cases same code using case "ArrowUp":
+    case " ":
+    case "Spacebar":
+      player.velocity.y -= 8;
+      break;
+
+you can destructur to get property from event objects like so:
+
+btn.addEventListener('click', ({ target }) => {
+  console.log(target);
+});
+
