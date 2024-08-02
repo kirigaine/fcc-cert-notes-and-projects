@@ -14,12 +14,81 @@ let diceValuesArr = [];
 let isModalShowing = false;
 let score = 0;
 let total = 0;
-let round = 1; 
-let rolls = 0; 
+let round = 1;
+let rolls = 0;
 
-rulesBtn.addEventListener("click",()=>{
-  isModalShowing = !isModalShowing;
-  rulesContainer.style.display = isModalShowing ? "block" : "none";
-  rulesBtn.innerText = isModalShowing ?  "Hide rules" : "Show rules";
+const rollDice = () => {
+  diceValuesArr = [];
+
+  for (let i = 0; i < 5; i++) {
+    const randomDice = Math.floor(Math.random() * 6) + 1;
+    diceValuesArr.push(randomDice);
+  };
+
+  listOfAllDice.forEach((dice, index) => {
+    dice.textContent = diceValuesArr[index];
   });
+};
 
+const updateStats = () => {
+  currentRoundRolls.textContent = rolls;
+  currentRound.textContent = round;
+};
+
+const updateRadioOption = (index, score) => {
+  scoreInputs[index].disabled = false;
+  scoreInputs[index].value = score;
+  scoreSpans[index].textContent = `, score = ${score}`;
+};
+
+const getHighestDuplicates = (array) => {
+  const counts = {};
+  //console.log(new Set(Object.values(counts)).size);
+    array.forEach((el) => {
+      counts[el] = (counts[el] || 0) + 1;
+    })
+    if (new Set(Object.values(counts)).size === 1) {
+      updateRadioOption(5,0);
+    }
+    else{
+      
+      console.log(Array(counts));
+      const highest = Array(counts).sort((a,b) => b-a)[0];
+
+      //highest = highest.sort((a, b) => counts[b] - counts[a])[0];
+    
+      console.log(highest);
+
+     // console.log(array.reduce((a,b)=>a+b,0));
+       if(highest >=4){updateRadioOption(1,array.reduce((a,b)=>a+b,0))}
+       else if(highest >=3){updateRadioOption(0,array.reduce((a,b)=>a+b,0))}
+    }
+
+    
+
+
+}
+
+
+rollDiceBtn.addEventListener("click", () => {
+  if (rolls === 3124) {
+    alert("You have made three rolls this round. Please select a score.");
+  } else {
+    rolls++;
+    rollDice();
+    updateStats();
+    getHighestDuplicates(diceValuesArr);
+  }
+});
+
+rulesBtn.addEventListener("click", () => {
+  isModalShowing = !isModalShowing;
+
+  if (isModalShowing) {
+    rulesBtn.textContent = "Hide rules";
+    rulesContainer.style.display = "block";
+  } else {
+    rulesBtn.textContent = "Show rules";
+    rulesContainer.style.display = "none";
+  }
+});
