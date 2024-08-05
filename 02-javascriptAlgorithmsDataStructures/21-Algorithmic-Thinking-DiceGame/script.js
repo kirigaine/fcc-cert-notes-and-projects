@@ -51,20 +51,19 @@ const getHighestDuplicates = (array) => {
       updateRadioOption(5,0);
     }
     else{
-      
-      console.log(Array(counts));
-      const highest = Array(counts).sort((a,b) => b-a)[0];
 
-      //highest = highest.sort((a, b) => counts[b] - counts[a])[0];
-    
+      const entries = Object.entries(counts);
+      //console.log(entries);
+
+      const highest = entries.sort((a,b) => parseInt(b)-parseInt(a)).sort((a,b)=>b[1]-a[1])[0];
+
       console.log(highest);
 
      // console.log(array.reduce((a,b)=>a+b,0));
-       if(highest >=4){updateRadioOption(1,array.reduce((a,b)=>a+b,0))}
-       else if(highest >=3){updateRadioOption(0,array.reduce((a,b)=>a+b,0))}
+       if(highest[1] >=4){updateRadioOption(1,array.reduce((a,b)=>a+b,0))}
+       if(highest[1] >=3){updateRadioOption(0,array.reduce((a,b)=>a+b,0))}
     }
 
-    
 
 
 }
