@@ -132,9 +132,28 @@ const resetGame = () => {
 };
 
 const checkForStraights = (arr) => {
-  arr.forEach((el)=>{
+    const noduplicates = [...new Set(arr.sort((a,b) => parseInt(b)-parseInt(a)))];
+    let sIterations = 0;
+    for(let i = 0; i<noduplicates.length; i++){
+      if(noduplicates[i] === noduplicates[i+1]+1){
+        sIterations++;
+      }
+      else{
+        break;
+      }
+    }
 
-  })
+    if (sIterations === 4){
+      updateRadioOption(4, 40);
+      updateRadioOption(3, 30);
+    }
+    else if (sIterations === 3){
+      updateRadioOption(3, 30);
+    }
+    else{
+      updateRadioOption(5, 0);
+    }
+
 }
 
 rollDiceBtn.addEventListener("click", () => {
