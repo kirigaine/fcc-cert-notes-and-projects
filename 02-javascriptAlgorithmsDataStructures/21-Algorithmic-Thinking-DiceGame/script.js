@@ -41,42 +41,113 @@ const updateRadioOption = (index, score) => {
   scoreSpans[index].textContent = `, score = ${score}`;
 };
 
-const getHighestDuplicates = (array) => {
+const updateScore = (selectedValue, achieved) => {
+  score += parseInt(selectedValue);
+  totalScore.textContent = score;
+
+  scoreHistory.innerHTML += `<li>${achieved} : ${selectedValue}</li>`;
+};
+
+const getHighestDuplicates = (arr) => {
   const counts = {};
-  //console.log(new Set(Object.values(counts)).size);
-    array.forEach((el) => {
-      counts[el] = (counts[el] || 0) + 1;
-    })
-    if (new Set(Object.values(counts)).size === 1) {
-      updateRadioOption(5,0);
+
+  for (const num of arr) {
+    if (counts[num]) {
+      counts[num]++;
+    } else {
+      counts[num] = 1;
     }
-    else{
+  }
 
-      const entries = Object.entries(counts);
-      //console.log(entries);
+  let highestCount = 0;
 
-      const highest = entries.sort((a,b) => parseInt(b)-parseInt(a)).sort((a,b)=>b[1]-a[1])[0];
-
-      console.log(highest);
-
-     // console.log(array.reduce((a,b)=>a+b,0));
-       if(highest[1] >=4){updateRadioOption(1,array.reduce((a,b)=>a+b,0))}
-       if(highest[1] >=3){updateRadioOption(0,array.reduce((a,b)=>a+b,0))}
+  for (const num of arr) {
+    const count = counts[num];
+    if (count >= 3 && count > highestCount) {
+      highestCount = count;
     }
+    if (count >= 4 && count > highestCount) {
+      highestCount = count;
+    }
+  }
 
+  const sumOfAllDice = arr.reduce((a, b) => a + b, 0);
 
+  if (highestCount >= 4) {
+    updateRadioOption(1, sumOfAllDice);
+  }
 
+  if (highestCount >= 3) {
+    updateRadioOption(0, sumOfAllDice);
+  }
+
+  updateRadioOption(5, 0);
+};
+
+const detectFullHouse = (arr) => {
+  const counts = {};
+
+  for (const num of arr) {
+    counts[num] = counts[num] ? counts[num] + 1 : 1;
+  }
+
+  const hasThreeOfAKind = Object.values(counts).includes(3);
+  const hasPair = Object.values(counts).includes(2);
+
+  if (hasThreeOfAKind && hasPair) {
+    updateRadioOption(2, 25);
+  }
+
+  updateRadioOption(5, 0);
+};
+
+const resetRadioOptions = () => {
+  scoreInputs.forEach((input) => {
+    input.disabled = true;
+    input.checked = false;
+  });
+
+  scoreSpans.forEach((span) => {
+    span.textContent = "";
+  });
+};
+
+const resetGame = () => {
+  diceValuesArr = [0, 0, 0, 0, 0];
+  score = 0;
+  round = 1;
+  rolls = 0;
+
+  listOfAllDice.forEach((dice, index) => {
+    dice.textContent = diceValuesArr[index];
+  });
+
+  totalScore.textContent = score;
+  scoreHistory.innerHTML = "";
+
+  currentRoundRolls.textContent = rolls;
+  currentRound.textContent = round;
+
+  resetRadioOptions();
+};
+
+const checkForStraights = (arr) => {
+  arr.forEach((el)=>{
+
+  })
 }
 
-
 rollDiceBtn.addEventListener("click", () => {
-  if (rolls === 3124) {
+  if (rolls === 3) {
     alert("You have made three rolls this round. Please select a score.");
   } else {
     rolls++;
+    resetRadioOptions();
     rollDice();
     updateStats();
     getHighestDuplicates(diceValuesArr);
+    detectFullHouse(diceValuesArr);
+    checkForStraights(diceValuesArr);
   }
 });
 
@@ -89,5 +160,34 @@ rulesBtn.addEventListener("click", () => {
   } else {
     rulesBtn.textContent = "Show rules";
     rulesContainer.style.display = "none";
+  }
+});
+
+keepScoreBtn.addEventListener("click", () => {
+  let selectedValue;
+  let achieved;
+
+  for (const radioButton of scoreInputs) {
+    if (radioButton.checked) {
+      selectedValue = radioButton.value;
+      achieved = radioButton.id;
+      break;
+    }
+  }
+
+  if (selectedValue) {
+    rolls = 0;
+    round++;
+    updateStats();
+    resetRadioOptions();
+    updateScore(selectedValue, achieved);
+    if (round > 6) {
+      setTimeout(() => {
+        alert(`Game Over! Your total score is ${score}`);
+        resetGame();
+      }, 500);
+    }
+  } else {
+    alert("Please select an option or roll the dice");
   }
 });
