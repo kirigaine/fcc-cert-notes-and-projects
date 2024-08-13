@@ -1,6 +1,7 @@
-let price = 1.87;
+//let price = 1.87;
+let price = 11.95
 // Total cash in drawer: $335.41
-// Max dispense @ $337.28 - $337.29 tipping point should empty register and fail 
+// Max dispense @ $337.28 - $337.29 tipping point should empty register and fail
 let cid = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
@@ -29,44 +30,62 @@ const btnPurchase = document.getElementById("purchase-btn");
 const cashEle = document.getElementById("cash");
 let dStatus = "OPEN";
 
+const updateChange = () => {
+  //temp
+}
 
 const checkCash = () => {
-  let cash = parseFloat(cashEle.value);
+  const cashRegex = /^\d+(\.\d{1,2})?$/gi;
+  let cash = parseFloat(parseFloat(cashEle.value).toFixed(2));
+  // Ensure monetary value given
+
+  if (cashRegex.test(cash)){
+
+    // Determine if customer can afford, otherwise no logic needed
+    if (cash < price) alert("Customer does not have enough money to purchase the item");
+    else if (cash === price) changeDue.textContent = "No change due - customer paid with exact cash";
 
 
-  if (cash < price) alert("Customer does not have enough money to purchase the item");
-  else if (cash === price) changeDue.textContent = "No change due - customer paid with exact cash";
+    else{
 
-  else{
+      // Subtract price from customer cash so we can calculate change
+      let leftover = parseFloat(cash-price).toFixed(2);
+      let i=cvalue.length-1;
 
-    let leftover = parseFloat(cash-price).toFixed(2);
-    let i=cvalue.length-1;
-
-    while(i>=0){
-      let typeCount = 0;
-      if (parseFloat(leftover - cvalue[i][1]).toFixed(2) >=0 && cid[i][1] > 0 ){
-          leftover = parseFloat(leftover - cvalue[i][1]).toFixed(2);
-          cid[i][1] = parseFloat(cid[i][1] - cvalue[i][1]).toFixed(2);
-          typeCount++;
-          //console.log(`leftover: ${leftover} cvalue: ${cvalue[i][1]}`);
+      while(i>=0){
+        const theKey = cvalue[i][0];
+        let theStart = 0;
+        let typeCount = 0;
+        if (parseFloat(leftover - cvalue[i][1]).toFixed(2) >=0 && cid[i][1] > 0 ){
+            leftover = parseFloat(leftover - cvalue[i][1]).toFixed(2);
+            cid[i][1] = parseFloat(cid[i][1] - cvalue[i][1]).toFixed(2);
+            theStart += cvalue[i][1];
+            typeCount++;
+            //console.log(`leftover: ${leftover} cvalue: ${cvalue[i][1]}`);
+            }
+        else{
+          //337.28
+          const everyZero = cid.every((value)=> parseFloat(value[1]) === 0);
+          if(i===0 && parseFloat(leftover) !== 0 && everyZero) {
+          alert("insufficient funds"); dStatus = "INSUFFICIENT_FUNDS";}
+          else if(i===0 && parseFloat(leftover) === 0 && everyZero) {dStatus = "CLOSED";}
+          i--;
+          if (theStart !== 0){
+            changeDue.textContent += `${theKey}: \$${theStart}`;
           }
-      else{
-        //337.28
-        const everyZero = cid.every((value)=> parseFloat(value[1]) === 0);
-        if(i===0 && parseFloat(leftover) !== 0 && everyZero) {
-        alert("insufficient funds"); dStatus = "INSUFFICIENT_FUNDS";}
-        else if(i===0 && parseFloat(leftover) === 0 && everyZero) {dStatus = "CLOSED";}
-        i--;
-//
-        // console.log(cid.every((key,value)=> cid[key] === 0));
-        console.log(`cash: ${cash} price: ${price} leftover: ${leftover} status: ${dStatus}`);
-      }
+          // console.log(cid.every((key,value)=> cid[key] === 0));
+          console.log(`cash: ${cash} price: ${price} leftover: ${leftover} status: ${dStatus}`);
+        }
 
-}
+    }
     
      console.log(`END CID: ${cid}`);
 
 
+}
+}
+else{
+  alert("INVALID MONEY NUMBER");
 }
 }
 
