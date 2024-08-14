@@ -1,0 +1,51 @@
+*{
+  /*border: 1px solid red;*/
+}
+
+html{
+  box-sizing: border-box;
+}
+
+h1{
+  text-align: center;
+}
+
+body{
+  background-color: darkgrey;
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+
+#change-due{
+  white-space: pre;
+  text-align: center;
+  display: block;
+}
+
+input{
+  text-align: center;
+}
+
+button{
+  width: 100%;
+  background-color: gold;
+  font-weight: bold;
+}
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
