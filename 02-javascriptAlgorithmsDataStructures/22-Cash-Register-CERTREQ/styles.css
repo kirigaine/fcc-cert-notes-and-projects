@@ -6,6 +6,12 @@ html{
   box-sizing: border-box;
 }
 
+header{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 h1{
   text-align: center;
 }
@@ -14,12 +20,12 @@ body{
   background-color: darkgrey;
 }
 
-.user-info{
+.user-info,.change-screen{
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20 auto;
   padding: 20px;
   flex-direction: column;
   border: 2px solid black;
@@ -31,6 +37,13 @@ body{
   text-align: center;
   display: block;
 }
+
+#change-left{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 
 input{
   text-align: center;

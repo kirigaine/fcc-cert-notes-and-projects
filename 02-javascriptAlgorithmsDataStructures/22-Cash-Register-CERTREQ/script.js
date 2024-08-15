@@ -1,4 +1,4 @@
-let price = 19.5
+let price = 3.26
 
 // Total cash in drawer: $335.41
 // Max dispense @ $337.28 - $337.29 tipping point should empty register and fail
@@ -33,6 +33,8 @@ const STATUS = {
   CLOSED: "CLOSED"
 };
 
+// TO DO: Find insufficient_funds bug and 
+
 const changeDue = document.getElementById("change-due");
 const btnPurchase = document.getElementById("purchase-btn");
 const cashEle = document.getElementById("cash");
@@ -41,10 +43,16 @@ const thePrice = document.getElementById("price");
 
 let dStatus = STATUS.OPEN;
 
-const updateChange = (changeString) => { 
+const updateText = (changeString) => { 
     changeDue.textContent = `Status: ${dStatus} ${changeString}`;
-    changeLeft.textContent = cid;
     thePrice.textContent = `\$${price.toFixed(2)}`;
+    cashEle.value = "";
+    changeLeft.innerHTML = "";
+    for (let i=0;i<cid.length;i++){
+      const pEle = document.createElement("span");
+      pEle.textContent = `${cid[i][0]}: \$${cid[i][1]}`;
+      changeLeft.appendChild(pEle);
+    }
 }
 
 const checkCash = () => {
@@ -117,7 +125,7 @@ const checkCash = () => {
           i--;
           
         }
-        updateChange(changeString);
+        updateText(changeString);
 
     }
     
