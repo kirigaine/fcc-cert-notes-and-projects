@@ -1,0 +1,19 @@
+asynchronous operations execute independently of main program flow
+async keyword creates these functions, which return a promise
+
+const fetchData = async () => { 
+  
+}
+
+we will use try...catch to handle errors
+
+const fetchData = async () => {
+  try {
+
+  } catch (err) {
+
+  }
+};
+
+we will use await keyword to handle logic
+await waits for a promise to resolve and returns the result
