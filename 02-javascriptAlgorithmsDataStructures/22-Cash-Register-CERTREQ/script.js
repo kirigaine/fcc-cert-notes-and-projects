@@ -77,59 +77,50 @@ const checkCash = () => {
       // Subtract price from customer cash so we can calculate change
       let remainingDue = parseFloat(cash-price).toFixed(2);
 
-      // Set iterator
-      let i=cvalue.length-1;
-
-      // Track how much of type we dispensed
-      let changeDispensedValue = 0;
-
       // Create string for change element
       let changeString = "";
+      let cidTemp = cid.map(innerArray => [...innerArray]);
 
-      while(i>=0){
+      for (let i=cvalue.length-1; i>=0; i--){
         const [changeKey, changeValue] = cvalue[i];
-        
+        let changeDispensedValue = 0;
         // If there is cash in drawer and we can subtract our current key's value and not go negative, do so
-        if (cid[i][1] > 0 && parseFloat(remainingDue - changeValue).toFixed(2) >=0){
+        while (cidTemp[i][1] > 0 && parseFloat(remainingDue - changeValue) >=0){
+
             remainingDue = parseFloat(remainingDue - changeValue).toFixed(2);
-            cid[i][1] = parseFloat(cid[i][1] - changeValue).toFixed(2);
+            cidTemp[i][1] = parseFloat(cidTemp[i][1] - changeValue).toFixed(2);
             changeDispensedValue += changeValue;
-            }
 
-        else{
-
-          const isDrawerEmpty = cid.every((value)=> parseFloat(value[1]) === 0);
-          
-          // If we dispensed any change for the iteration, add it to string builder
-          if (changeDispensedValue !== 0){
-            //const pEle = document.createElement("span");
-            //pEle.textContent = `${changeKey}: \$${changeDispensedValue.toFixed(2)}`;
-            //changeDue.appendChild(pEle);
-            changeString += `\n${changeKey}: \$${changeDispensedValue.toFixed(2)}`;
-            changeDispensedValue=0;
           }
 
-          // Check and change register status 
+        // If we dispensed any change for the iteration, add it to string builder
+        if (changeDispensedValue > 0){
+          changeString += `\n${changeKey}: \$${changeDispensedValue.toFixed(2)}`;
+        }
+
+      
+
+
+          // Check and change register status at end
           if (i===0){
-            if(parseFloat(remainingDue) !== 0){
+            if(parseFloat(remainingDue) > 0){
               dStatus = STATUS.INSUFFICIENT_FUNDS;
               changeString = "";
               changeDispensedValue = 0;
             }
-            else if(parseFloat(remainingDue) === 0 && isDrawerEmpty){
-              dStatus = STATUS.CLOSED;
+            else {
+              //console.log(`${cidTemp[i][1]} vs ${cid[i][1]}`);
+              cid = cidTemp;
+              const isDrawerEmpty = cid.every((value)=> parseFloat(value[1]) === 0);
+              dStatus = isDrawerEmpty ? STATUS.CLOSED : STATUS.OPEN;
             }
-          }
-
-          // Get to this logic when no more can be subtracted, so iterate
-          i--;
+          } // end i===0
           
-        }
+        } // end loop
         updateText(changeString);
 
-    }
+    } 
     
-}
 }
 else{
   alert("INVALID MONEY NUMBER - ONLY NUMERIC INPUT NO $, OPTIONAL 2 DECIMAL PLACES");
@@ -137,4 +128,3 @@ else{
 }
 
 btnPurchase.addEventListener("click",checkCash);
-
