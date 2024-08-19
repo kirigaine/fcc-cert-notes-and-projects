@@ -1,0 +1,39 @@
+:root {
+  --type-normal: #a8a878; /* Normal */
+  --type-fire: #f08030; /* Fire */
+  --type-water: #6890f0; /* Water */
+  --type-electric: #f8d030; /* Electric */
+  --type-grass: #78c850; /* Grass */
+  --type-ice: #98d8d8; /* Ice */
+  --type-fighting: #c03028; /* Fighting */
+  --type-poison: #a040a0; /* Poison */
+  --type-ground: #e0c068; /* Ground */
+  --type-flying: #a890f0; /* Flying */
+  --type-psychic: #f85888; /* Psychic */
+  --type-bug: #a8b820; /* Bug */
+  --type-rock: #b8a038; /* Rock */
+  --type-ghost: #705898; /* Ghost */
+  --type-dragon: #7038f8; /* Dragon */
+  --type-dark: #705848; /* Dark */
+  --type-steel: #b8b8d0; /* Steel */
+  --type-fairy: #f0b6bc; /* Fairy */
+}
+
+.user-controls,.pokemon-info{
+  border: solid 1px black;
+}
+
+.pokemon-type{
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.pokemon-image{
+  width: 300px;
+  height: 300px;
+}
