@@ -15,6 +15,8 @@ const searchBtn = document.getElementById("search-button");
 
 const pokemonUrl = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 
+//const hiddenText = [pName,pId,pWeight,pHeight,pImage,pTypes,pHP,pAtt,pDef,pSpAtt,pSpDef,pSpeed];
+
 const pokemonTypeColors = {
   "normal": "#A8A878",
   "fire": "#F08030",

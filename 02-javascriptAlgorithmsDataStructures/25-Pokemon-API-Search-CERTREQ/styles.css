@@ -45,6 +45,7 @@ h1,h3{
   border-radius: 50%;
   background: linear-gradient(teal,lightblue 50%);
   outline: 3px solid white;
+  box-shadow: 5px 5px 5px rgba(255,255,255,80%);
 }
 
 .light1,.light2,.light3{
@@ -100,7 +101,11 @@ p{
   border-left: 5px solid darkred;
 }
 
-.pokedex>div:not(.pokemon-image){
+.pokedex>.screen>div{
+  padding-left: 10px;
+}
+
+.pokedex>div:not(.pokemon-image,.screen){
   padding-left: 20px;
 }
 div.pokedex.left, div.pokedex.right{
@@ -127,18 +132,15 @@ div.pokedex.left, div.pokedex.right{
   align-items: center;
 }
 
-
-
 .hidden{
   display: none;
 }
-
-
 
 .pokemon-type{
   display: block;
   width: 140px;
   height: 20px;
+  line-height: 20px;
   text-align: center;
   border-radius: 4px;
   padding: 4px;
@@ -151,6 +153,7 @@ div.pokedex.left, div.pokedex.right{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0px;
 }
 .screen>div>label,.screen>div>p{
   color: white;
@@ -182,6 +185,7 @@ div.pokedex.left, div.pokedex.right{
   margin-top: 70px;
   max-width: 250px;
   outline: 5px solid darkred;
+  justify-content: space-between;
 }
 
 .screen{
@@ -190,5 +194,7 @@ div.pokedex.left, div.pokedex.right{
   width: 250px;
   max-width: 250px;
   height: 550px;
-  background-color: rgba(0,0,0,89%);
+  background: linear-gradient(black,rgba(0,0,0,89%)50%);
+  border-radius: 4px;
+  outline: 5px solid darkred;
 }
