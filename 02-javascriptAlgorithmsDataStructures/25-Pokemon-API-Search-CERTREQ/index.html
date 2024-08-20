@@ -1,63 +1,91 @@
-:root {
-  --type-normal: #a8a878; /* Normal */
-  --type-fire: #f08030; /* Fire */
-  --type-water: #6890f0; /* Water */
-  --type-electric: #f8d030; /* Electric */
-  --type-grass: #78c850; /* Grass */
-  --type-ice: #98d8d8; /* Ice */
-  --type-fighting: #c03028; /* Fighting */
-  --type-poison: #a040a0; /* Poison */
-  --type-ground: #e0c068; /* Ground */
-  --type-flying: #a890f0; /* Flying */
-  --type-psychic: #f85888; /* Psychic */
-  --type-bug: #a8b820; /* Bug */
-  --type-rock: #b8a038; /* Rock */
-  --type-ghost: #705898; /* Ghost */
-  --type-dragon: #7038f8; /* Dragon */
-  --type-dark: #705848; /* Dark */
-  --type-steel: #b8b8d0; /* Steel */
-  --type-fairy: #f0b6bc; /* Fairy */
-}
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Pokedex Search</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+	</head>
+	<body>
 
-/*{
-  border: 1px solid red;
-}*/
+    <div class="user-controls">
+      <h2>Search for Pokemon Name or ID:</h2>
+    <input id="search-input" required></input>
+    <button id="search-button">Search</button>
+</div>
 
-html{
-  font-family: "Press Start 2P", sans-serif;
-}
+<h3>Hint: Try clicking the picture after your search!</h3>
 
-p{
-  display: inline-block;
-}
+<div class="pokemon-info">
+  <div class="pokedex left">
+  <div class="topbar">
+  <div class="camera"></div>
+  <div class="light1"></div>
+  <div class="light2"></div>
+  <div class="light3"></div>
+  </div>
+  <div class="pokemon-image">
 
-.hidden{
-  display: none;
-}
+    <img id="sprite" class="hidden" src=""/>
+  </div>
+  <div class="pokemon-description">
+  <div>
+    <label>Name:</label>
+    <p id="pokemon-name"></p>
+  </div>
+  <div class="id">
+    <label>ID:</label>
+    <p id="pokemon-id"></p>
+  </div>
+  </div>
+  </div>
+  <div class="pokedex right">
+  <div class="screen">
+  <div>
+    <label>Weight:</label>
+    <p id="weight"></p>
+  </div>
+  
+  <div>
+    <label>Height:</label>
+    <p id="height"></p>
+  </div>
+  <div class="types">
+    <label>Types:</label>
+    <p id="types"></p>
+  </div>
+  <div>
+    <label>HP:</label>
+    <p id="hp"></p>
+  </div>
+  <div>
+    <label>ATT:</label>
+    <p id="attack"></p>
+  </div>
+  <div>
+    <label>DEF:</label>
+    <p id="defense"></p>
+  </div>
+  <div>
+    <label>SP.ATT:</label>
+    <p id="special-attack"></p>
+  </div>
+  <div>
+    <label>SP.DEF:</label>
 
-.user-controls,.pokemon-info{
-  border: solid 1px black;
-}
+    <p id="special-defense"></p>
+  </div>
+  <div>
+    <label>SPD:</label>
+    <p id="speed"></p>
+  </div>
+  </div>
+  </div>
+</div>
+		<script src="script.js"></script>
+	</body>
+</html>
 
-.pokemon-type{
-  display: inline-block;
-  width: 140px;
-  height: 20px;
-  text-align: center;
-  border-radius: 4px;
-  padding: 4px;
-  margin: 0 5px;
-  cursor: pointer;
-
-}
-
-#search-button,#search-input{
-  font-family: "Press Start 2P", sans-serif;
-}
-
-#sprite{
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  background-color: lightblue;
-}

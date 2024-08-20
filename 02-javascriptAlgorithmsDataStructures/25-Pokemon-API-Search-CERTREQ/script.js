@@ -38,6 +38,12 @@ const pokemonTypeColors = {
 let pokemonImages = {};
 let pokemonRotations = {};
 
+/* TODO: keyboard controls
+hide text before search
+finish input requirements
+refactor all code
+
+*/
 let rotation = 0;
 
 // Note: Pokémon names should be in lowercase, have special characters removed, and be dash separated. Also, if the Pokémon has either ♀ or ♂ as part of its name, the format is {name-f} or {name-m}, respectively. 
