@@ -2,7 +2,7 @@ const pName = document.getElementById("pokemon-name");
 const pId = document.getElementById("pokemon-id");
 const pWeight = document.getElementById("weight");
 const pHeight = document.getElementById("height");
-const pImage = document.getElementById("pokemon-img");
+const pImage = document.getElementById("sprite");
 const pTypes = document.getElementById("types");
 const pHP = document.getElementById("hp");
 const pAtt = document.getElementById("attack");
@@ -36,17 +36,7 @@ const pokemonTypeColors = {
   "fairy": "#F0B6BC"
 };
 let pokemonImages = {};
-const pokemonRotations = 
-  {
-  0: "back_default",
-  1: "back_female",
-  2: "back_shiny",
-  3: "back_shiny_female",
-  4: "front_default",
-  5: "front_female",
-  6: "front_shiny",
-  7: "front_shiny_female"
-};
+let pokemonRotations = {};
 
 let rotation = 0;
 
@@ -54,9 +44,9 @@ let rotation = 0;
 
 const validateInput = () => {
   clearFields();
-  const userinput = searchInput.value;
-  // TODO: integers or alphabet up to so many chararacters
-  const regex = /^(\d){1,5}$/;
+  const userinput = searchInput.value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  // TODO: integers or alphabet up to so many chararacters, strip special characters
+  const regex = /^((\d){1,5})||[a-zA-Z]{1,20}$/;
   if (regex.test(userinput)){
     console.log("passed");
     callAPI(userinput);
@@ -68,9 +58,21 @@ const validateInput = () => {
 
 const clearFields = () => {
   rotation = 0;
+  pImage.src = "";
   pName.innerText = "";
   pId.innerText = "";
   pTypes.innerHTML = "";
+  pWeight.innerText = "";
+  pHeight.innerText = "";
+  pHP.innerText = "";
+  pAtt.innerText = "";
+  pDef.innerText = "";
+  pSpAtt.innerText = "";
+  pSpDef.innerText = "";
+  pSpeed.innerText = "";
+  pokemonRotations = {};
+  pokemonImages = {};
+  pImage.classList.add("hidden");
 }
 
 const callAPI = async (nameorid) => {
@@ -80,12 +82,15 @@ try{
   digestPokemon(pokemonJSON);
 }  
 catch(err){
+  alert("Pokemon not found");
   console.log(err);
 }
 }
 
 const rotatePokemon = () => {
-  rotation <= 6 ? rotation++ : rotation = 0;
+  let numImgs = Object.keys(pokemonRotations).length-1;
+  
+  rotation < numImgs ? rotation++ : rotation = 0;
   pImage.src = pokemonImages[pokemonRotations[rotation]];
 }
 
@@ -93,9 +98,10 @@ const digestPokemon = (pokemonJSON) => {
   //console.log(pokemonJSON);
   const {_,height,id,name,sprites,stats,types,weight} = pokemonJSON;
   pokemonImages = sprites;
-  console.log(pokemonImages);
+  Object.keys(sprites).forEach((key,index) => pokemonRotations[index] = key);
+  console.log(pokemonRotations);
 // NAME
-  pName.textContent = name;
+  pName.textContent = name.toUpperCase();
 // ID
   pId.textContent = id;
 // WEIGHT
@@ -104,7 +110,9 @@ const digestPokemon = (pokemonJSON) => {
   pHeight.textContent = height;
 
 // IMAGE(S)
-  pImage.src = rotatePokemon(sprites);
+pImage.classList.remove("hidden");
+rotation = Object.values(pokemonRotations).indexOf("front_default")-1;
+  rotatePokemon();
   //console.log(sprites);
 
 

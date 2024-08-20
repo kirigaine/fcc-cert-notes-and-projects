@@ -1,45 +1,63 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<title>Pokedex Search</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
+:root {
+  --type-normal: #a8a878; /* Normal */
+  --type-fire: #f08030; /* Fire */
+  --type-water: #6890f0; /* Water */
+  --type-electric: #f8d030; /* Electric */
+  --type-grass: #78c850; /* Grass */
+  --type-ice: #98d8d8; /* Ice */
+  --type-fighting: #c03028; /* Fighting */
+  --type-poison: #a040a0; /* Poison */
+  --type-ground: #e0c068; /* Ground */
+  --type-flying: #a890f0; /* Flying */
+  --type-psychic: #f85888; /* Psychic */
+  --type-bug: #a8b820; /* Bug */
+  --type-rock: #b8a038; /* Rock */
+  --type-ghost: #705898; /* Ghost */
+  --type-dragon: #7038f8; /* Dragon */
+  --type-dark: #705848; /* Dark */
+  --type-steel: #b8b8d0; /* Steel */
+  --type-fairy: #f0b6bc; /* Fairy */
+}
 
-    <div class="user-controls">
-      <p>Search for Pokemon Name or ID:</p>
-    <input id="search-input"></input>
-    <button id="search-button">Search</button>
-</div>
+/*{
+  border: 1px solid red;
+}*/
 
-<div class="pokemon-info">
-    <label>Name:</label>
-    <p id="pokemon-name"></p>
-    <label>ID:</label>
-    <p id="pokemon-id"></p>
-    <label>Weight:</label>
-    <p id="weight"></p>
-    <label>Height:</label>
-    <img id="pokemon-img" src=""/>
-    <p id="height"></p>
-    <label>Types:</label>
-    <p id="types"></p>
-    <label>HP:</label>
-    <p id="hp"></p>
-    <label>ATT:</label>
-    <p id="attack"></p>
-    <label>DEF:</label>
-    <p id="defense"></p>
-    <label>SP.ATT:</label>
-    <p id="special-attack"></p>
-    <label>SP.DEF:</label>
-    <p id="special-defense"></p>
-    <label>SPD:</label>
-    <p id="speed"></p>
-</div>
-		<script src="script.js"></script>
-	</body>
-</html>
+html{
+  font-family: "Press Start 2P", sans-serif;
+}
 
+p{
+  display: inline-block;
+}
+
+.hidden{
+  display: none;
+}
+
+.user-controls,.pokemon-info{
+  border: solid 1px black;
+}
+
+.pokemon-type{
+  display: inline-block;
+  width: 140px;
+  height: 20px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0 5px;
+  cursor: pointer;
+
+}
+
+#search-button,#search-input{
+  font-family: "Press Start 2P", sans-serif;
+}
+
+#sprite{
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  background-color: lightblue;
+}

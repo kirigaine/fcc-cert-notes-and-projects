@@ -19,21 +19,45 @@
   --type-fairy: #f0b6bc; /* Fairy */
 }
 
+/*{
+  border: 1px solid red;
+}*/
+
+html{
+  font-family: "Press Start 2P", sans-serif;
+}
+
+p{
+  display: inline-block;
+}
+
+.hidden{
+  display: none;
+}
+
 .user-controls,.pokemon-info{
   border: solid 1px black;
 }
 
 .pokemon-type{
   display: inline-block;
-  width: 100px;
+  width: 140px;
   height: 20px;
   text-align: center;
   border-radius: 4px;
   padding: 4px;
   margin: 0 5px;
+  cursor: pointer;
+
 }
 
-.pokemon-image{
-  width: 300px;
-  height: 300px;
+#search-button,#search-input{
+  font-family: "Press Start 2P", sans-serif;
+}
+
+#sprite{
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  background-color: lightblue;
 }
