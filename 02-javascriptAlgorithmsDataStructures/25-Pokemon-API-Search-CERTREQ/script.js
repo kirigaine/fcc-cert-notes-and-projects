@@ -12,10 +12,9 @@ const pSpDef = document.getElementById("special-defense");
 const pSpeed = document.getElementById("speed");
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
+const helpBtn = document.getElementById("help-button");
 
 const pokemonUrl = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
-
-//const hiddenText = [pName,pId,pWeight,pHeight,pImage,pTypes,pHP,pAtt,pDef,pSpAtt,pSpDef,pSpeed];
 
 const pokemonTypeColors = {
   "normal": "#A8A878",
@@ -40,26 +39,23 @@ const pokemonTypeColors = {
 let pokemonImages = {};
 let pokemonRotations = {};
 
-/* TODO: keyboard controls
-hide text before search
-finish input requirements
-refactor all code
-
-*/
 let rotation = 0;
 
 // Note: Pokémon names should be in lowercase, have special characters removed, and be dash separated. Also, if the Pokémon has either ♀ or ♂ as part of its name, the format is {name-f} or {name-m}, respectively. 
 
 const validateInput = () => {
   clearFields();
-  const userinput = searchInput.value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
-  // TODO: integers or alphabet up to so many chararacters, strip special characters
-  const regex = /^((\d){1,5})||[a-zA-Z]{1,20}$/;
+  const userinput = searchInput.value.replace(/[^a-zA-Z0-9\-]/g, "").toLowerCase();
+
+  const regex = /^(\d{1,5}|[a-zA-Z]{1,20})(-(male|female))?$/;
   if (regex.test(userinput)){
     console.log("passed");
     callAPI(userinput);
+    searchInput.value = "";
+
   }
   else{alert("invalid input")};
+
   // Make it easier to choose next pokemon
   searchInput.focus();
 }
@@ -81,6 +77,7 @@ const clearFields = () => {
   pokemonRotations = {};
   pokemonImages = {};
   pImage.classList.add("hidden");
+  document.querySelectorAll("label").forEach(ele => ele.classList.add("hidden"))
 }
 
 const callAPI = async (nameorid) => {
@@ -95,8 +92,9 @@ catch(err){
 }
 }
 
+// Rotate pokemon based on global variable and keys
 const rotatePokemon = () => {
-  let numImgs = Object.keys(pokemonRotations).length-1;
+  const numImgs = Object.keys(pokemonRotations).length-1;
   
   rotation < numImgs ? rotation++ : rotation = 0;
   pImage.src = pokemonImages[pokemonRotations[rotation]];
@@ -104,10 +102,15 @@ const rotatePokemon = () => {
 
 const digestPokemon = (pokemonJSON) => {
   //console.log(pokemonJSON);
+
   const {_,height,id,name,sprites,stats,types,weight} = pokemonJSON;
+
+  // Store sprites for temporary use for rotation
   pokemonImages = sprites;
   Object.keys(sprites).forEach((key,index) => pokemonRotations[index] = key);
+
   console.log(pokemonRotations);
+
 // NAME
   pName.textContent = name.toUpperCase();
 // ID
@@ -117,14 +120,15 @@ const digestPokemon = (pokemonJSON) => {
 // HEIGHT
   pHeight.textContent = height;
 
-// IMAGE(S)
-pImage.classList.remove("hidden");
-rotation = Object.values(pokemonRotations).indexOf("front_default")-1;
+// IMAGE(S) set to front_default as default
+  pImage.classList.remove("hidden");
+  rotation = Object.values(pokemonRotations).indexOf("front_default")-1;
   rotatePokemon();
-  //console.log(sprites);
 
 
 // TYPES
+
+// Create an element for each type and append
 
   types.forEach((type) => {
     const typeDiv = document.createElement("div");
@@ -133,7 +137,6 @@ rotation = Object.values(pokemonRotations).indexOf("front_default")-1;
     typeDiv.classList.add("pokemon-type");
     pTypes.appendChild(typeDiv);
   })
-  // const {hp,attack,defense,specialattack,specialdefense,speed} = stats;
 
 // HP
 
@@ -153,7 +156,24 @@ rotation = Object.values(pokemonRotations).indexOf("front_default")-1;
 // SPD
   pSpeed.textContent = stats[5]["base_stat"];
 
+// Show all labels
+document.querySelectorAll("label").forEach(ele => ele.classList.remove("hidden"))
+
 }
 
+const helpUser = () => alert("Input must be either a number (1-5 digits) or a name (1-20 letters), optionally followed by a dash '-' and 'male' or 'female'.")
+
 searchBtn.addEventListener("click",validateInput);
+
+helpBtn.addEventListener("click",helpUser);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter"){
+    validateInput();}
+  // Rework rotation if want to cycle properly
+  else if(e.key === "ArrowLeft" || e.key === "ArrowRight"){
+    rotatePokemon();
+  }
+})
+
 pImage.addEventListener("click",rotatePokemon);
