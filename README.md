@@ -4,9 +4,10 @@ Welcome to my compilation of projects and notes for certifications from [FreeCod
 
 ## Certifications Completed:
 - [**Responsive Web Design (HTML/CSS)**](https://www.freecodecamp.org/certification/tholen2147/responsive-web-design)
+- [**JavaScript**]([https://www.freecodecamp.org/certification/tholen2147/responsive-web-design](https://www.freecodecamp.org/certification/tholen2147/javascript-algorithms-and-data-structures-v8))
 
 ## Currently Working On:
-- **JavaScript**
+- **Front-end Libraries**
 
 ## What I'm Excited About:
 I'm particularly looking forward to diving into the backend and database lessons!
